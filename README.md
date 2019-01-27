@@ -24,7 +24,7 @@ services:
 ## SELinux
 If you have SELinux enabled volume mounts are a bit more complicated. You have 2 options to get around permission denied errors with docker-compose.
 
-Option 1 - Use :Z to automatically relabel files
+Option 1 - Use :Z to automatically relabel files\
 **This will remove the existing label on files/directories which may break things**
 ```yaml
 volumes:
