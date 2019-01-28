@@ -15,7 +15,7 @@ docker-compose:
 ```yaml
 services:
   terraform-utils:
-    image: deanillfeld/terraform-utils:latest
+    image: deanillfeld/docker-terraform-utils:latest
     volumes:
       - ~/code:/code
       - ~/.aws:/root/.aws
