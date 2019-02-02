@@ -28,7 +28,7 @@ RUN curl -L -o /tmp/git-chglog https://github.com/git-chglog/git-chglog/releases
     chmod +x /usr/local/bin/git-chglog
 
 #Install awscli
-RUN pip install awscli==${AWSCLI_VERSION}
+RUN pip3 install awscli==${AWSCLI_VERSION}
 
 #Make mounts
 RUN mkdir /code
