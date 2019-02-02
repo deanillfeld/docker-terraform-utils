@@ -3,6 +3,7 @@ A docker image that contains tools used to build and deploy Terraform modules.
 - terraform
 - terraform-docs
 - git-chglog
+- aws-cli
 
 ## Examples
 Makefile:
@@ -17,8 +18,10 @@ services:
   terraform-utils:
     image: deanillfeld/docker-terraform-utils:latest
     volumes:
-      - ~/code:/code
+      - .:/code
       - ~/.aws:/root/.aws
+      - ~/.ssh:/root/.ssh
+    working_dir: /code
 ```
 
 ## SELinux
