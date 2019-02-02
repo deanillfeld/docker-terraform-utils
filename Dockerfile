@@ -1,6 +1,6 @@
 FROM alpine:3.8
 
-RUN apk add --no-cache bash git curl unzip
+RUN apk add --no-cache bash git curl unzip python3 groff
 
 SHELL ["/bin/bash", "-c"]
 
@@ -8,6 +8,7 @@ SHELL ["/bin/bash", "-c"]
 ENV TERRAFORM_VERSION 0.11.11
 ENV TERRAFORM_DOCS_VERSION 0.6.0
 ENV GIT_CHGLOG_VERSION 0.7.1
+ENV AWSCLI_VERSION 1.16.96
 
 #Install Terraform
 RUN curl -L -o /tmp/terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
@@ -25,6 +26,9 @@ RUN curl -L -o /tmp/terraform-docs https://github.com/segmentio/terraform-docs/r
 RUN curl -L -o /tmp/git-chglog https://github.com/git-chglog/git-chglog/releases/download/${GIT_CHGLOG_VERSION}/git-chglog_linux_amd64 && \
     mv /tmp/git-chglog /usr/local/bin/git-chglog && \
     chmod +x /usr/local/bin/git-chglog
+
+#Install awscli
+RUN pip install awscli==${AWSCLI_VERSION}
 
 #Make mounts
 RUN mkdir /code
